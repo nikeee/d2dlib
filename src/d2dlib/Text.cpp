@@ -163,7 +163,7 @@ HANDLE CreateTextPathGeometry(HANDLE ctx, LPCWSTR text, HANDLE fontFaceHandle, F
 	D2DPathContext* pathContext = NULL;
 	IDWriteFontFace* fontFace = fontFaceWrap->fontFace;
 
-	size_t textLength = wcslen(text);
+	auto textLength = (UINT32)wcslen(text);
 
 	UINT* codePoints = new UINT[textLength];
 	UINT16* glyphIndices = new UINT16[textLength];
