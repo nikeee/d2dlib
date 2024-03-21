@@ -100,7 +100,7 @@ namespace unvell.D2DLib
 
 		public D2DRectangleGeometry CreateRectangleGeometry(D2DRect rect)
 		{
-			HANDLE rectGeometryHandle = D2D.CreateRectangleGeometry(this.Handle, ref rect);
+			HANDLE rectGeometryHandle = D2D.CreateRectangleGeometry(this.Handle, in rect);
 			return new D2DRectangleGeometry(this, rectGeometryHandle);
 		}
 
@@ -110,7 +110,7 @@ namespace unvell.D2DLib
 			return new D2DPathGeometry(this, geoHandle);
 		}
 
-		public D2DPathGeometry CreateCombinedGeometry(D2DPathGeometry path1, D2DPathGeometry path2, 
+		public D2DPathGeometry CreateCombinedGeometry(D2DPathGeometry path1, D2DPathGeometry path2,
 			D2D1_COMBINE_MODE combineMode, FLOAT flatteningTolerance = 10f)
 		{
 			HANDLE geoHandle = D2D.CreateCombinedGeometry(this.Handle, path1.Handle, path2.Handle, combineMode, flatteningTolerance);
@@ -120,7 +120,7 @@ namespace unvell.D2DLib
 		public D2DGeometry CreateEllipseGeometry(D2DPoint origin, D2DSize size)
 		{
 			var ellipse = new D2DEllipse(origin, size);
-			return new D2DGeometry(this, D2D.CreateEllipseGeometry(this.Handle, ref ellipse));
+			return new D2DGeometry(this, D2D.CreateEllipseGeometry(this.Handle, in ellipse));
 		}
 
 		public D2DGeometry CreatePieGeometry(D2DPoint origin, D2DSize size, float startAngle, float endAngle)

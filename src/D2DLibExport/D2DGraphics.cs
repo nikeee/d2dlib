@@ -214,7 +214,7 @@ namespace unvell.D2DLib
 
 		public void PushClip(D2DRect rect)
 		{
-			D2D.PushClip(this.Handle, ref rect);
+			D2D.PushClip(this.Handle, in rect);
 		}
 
 		public void PopClip()
